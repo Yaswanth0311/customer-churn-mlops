@@ -36,6 +36,13 @@ for column in df.columns:
         df[column] = le.fit_transform(df[column])
 
 # Features and target
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+
+for col in df.columns:
+    if df[col].dtype == 'object':
+        df[col] = le.fit_transform(df[col])
 X = df.drop("Churn", axis=1)
 y = df["Churn"]
 
